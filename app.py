@@ -67,6 +67,31 @@ biaya_min, biaya_max = st.sidebar.slider(
 df_filtered = df[(df["Biaya Harian"] >= biaya_min) & (df["Biaya Harian"] <= biaya_max)]
 
 st.subheader("📊 Dataset")
+with st.expander("📊 Statistik Destinasi"):
+    st.markdown("**Rata-Rata Tiap Kriteria**")
+    mean_values = df_filtered.mean(numeric_only=True)
+    st.write(mean_values)
+
+    st.markdown("**Visualisasi Biaya Harian**")
+    fig_biaya = px.bar(
+        df_filtered,
+        x="Destinasi",
+        y="Biaya Harian",
+        color="Destinasi",
+        text_auto=True,
+        title="Biaya Harian per Destinasi"
+    )
+    st.plotly_chart(fig_biaya, use_container_width=True)
+
+    st.markdown("**Visualisasi Tingkat Keamanan**")
+    fig_keamanan = px.pie(
+        df_filtered,
+        names="Destinasi",
+        values="Tingkat Keamanan",
+        title="Distribusi Tingkat Keamanan"
+    )
+    st.plotly_chart(fig_keamanan, use_container_width=True)
+
 st.dataframe(df_filtered)
 
 # Bobot Kriteria
