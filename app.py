@@ -220,3 +220,7 @@ else:
 
 st.write("Ranking setelah simulasi:")
 st.dataframe(sim_result)
+
+# https://ulanganakhirsemestersistempendukungkeputusanyuhu.streamlit.app/
+# ty
+# jordan
