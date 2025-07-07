@@ -224,3 +224,4 @@ st.dataframe(sim_result)
 # https://ulanganakhirsemestersistempendukungkeputusanyuhu.streamlit.app/
 # ty
 # jordan
+#jnbla
